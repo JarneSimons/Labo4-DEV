@@ -7,11 +7,32 @@ const port = 3000
 const cors = require('cors')
 app.use(cors());
 
-app.get("/api/v1/messages", (req, res) => {
+app.get("/api/v1/messages/", (req, res) => {
   res.json({
     "status": "success",
     "message": "GET messages",
-    "data": [],
+    "data": []
+  
+  })
+})
+
+
+app.get("/api/v1/messages/:id", (req, res) => {
+  res.json({
+    "status": "success",
+    "message": "GET messages 1",
+    "data": {
+      "messages" : [
+        {
+          "user": "Jarne",
+          "message": "Hello World!"
+        },
+        {
+        "user": "Jeff",
+        "message": "Hey!"  
+        }
+      ]
+    },
   })
 })
 
